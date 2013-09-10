@@ -11,7 +11,12 @@ describe "Static pages" do
 
 		it "should have the title 'Home'" do
 			visit '/static_pages/home'
-			page.should have_selector('title', :text => "Ruby on Rails Tutorial Twitterclone App | Home ")
+			page.should have_selector('title', :content => "Ruby on Rails Tutorial Twitterclone App | Home ")
+		end
+
+		it "should not have a custom page title" do
+			visit '/static_pages/home'
+			page.should_not have_selector('title', :text => '| Home')
 		end
 	end 
 
@@ -24,7 +29,7 @@ describe "Static pages" do
 
 		it "should have the title 'Help'" do
 			visit '/static_pages/help'
-			page.should have_selector('title', :text => "Ruby on Rails Tutorial Twitterclone App | Help ")
+			page.should have_selector('title', :content => "Ruby on Rails Tutorial Twitterclone App | Help ")
 		end
 	end
 
@@ -37,7 +42,7 @@ describe "Static pages" do
 
 		it "should have the title 'About Us'" do
 			visit '/static_pages/about'
-			page.should have_selector('title', :text => "Ruby on Rails Tutorial Twitterclone App | About Us ")
+			page.should have_selector('title', :content => "Ruby on Rails Tutorial Twitterclone App | About Us ")
 		end
 	end
 
